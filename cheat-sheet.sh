@@ -132,6 +132,23 @@ ${purple}dif${reset} - ${reset}delete current inner function${reset}
 END
 }
 
+fzf() {
+cat << END
+
+${boldon}COMMANDS${boldoff}
+
+${purple}C-r${reset}         - ${reset}view commandline history${reset}
+${purple}nvim C-t${reset}    - ${reset}search files in dir${reset}
+${purple}cd **${reset}       - ${reset}view all dirs${reset}
+${purple}export **${reset}   - ${reset}view all set env vars${reset}
+
+END
+}
+
+if [[ $1 == "fzf" ]]; then
+    echo -e "$(fzf)"
+fi
+
 if [[ $1 == "vi" ]]; then
     echo -e "$(vi)"
 fi
